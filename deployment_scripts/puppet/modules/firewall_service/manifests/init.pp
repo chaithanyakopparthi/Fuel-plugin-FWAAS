@@ -6,10 +6,10 @@ class firewall_service {
     tries => 10,
     try_sleep => 10,
   }
-  exec { "neutron-server":
+  exec { 'neutron-server':
     command => "/usr/sbin/service neutron-server restart",
-    require => Exec["neutron-db-sync"],}
+    require => Exec['neutron-db-sync'],}
   exec { "apache2":
     command => "/usr/sbin/service apache2 restart",
-    require => Exec["neutron-db-sync"],}
+    require => Exec['neutron-db-sync'],}
 }
