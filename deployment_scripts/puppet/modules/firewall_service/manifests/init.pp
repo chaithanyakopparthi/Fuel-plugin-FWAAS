@@ -7,9 +7,9 @@ class firewall_service {
     try_sleep => 10,
   }
   exec { 'neutron-server':
-    command => "/usr/sbin/service neutron-server restart",
+    command => '/usr/sbin/service neutron-server restart',
     require => Exec['neutron-db-sync'],}
-  exec { "apache2":
-    command => "/usr/sbin/service apache2 restart",
+  exec { 'apache2':
+    command => '/usr/sbin/service apache2 restart',
     require => Exec['neutron-db-sync'],}
 }
